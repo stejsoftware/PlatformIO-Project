@@ -5,8 +5,10 @@ sudo: false
 cache:
   directories:
     - ~/.platformio
+env:
+  - PLATFORMIO_CI_SRC=src/main.cpp
 install:
   - pip install -U platformio
   - platformio update
 script:
-  - platformio run
+  - platformio ci -b uno -b sparkfun_redboard -b pro16MHzatmega328 -b protrinket5 -b teensy20 -b nodemcu
